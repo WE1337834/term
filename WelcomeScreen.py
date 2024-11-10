@@ -1,6 +1,7 @@
-from kivy.uix.screenmanager import Screen
-from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.label import Label
+from kivy.uix.screenmanager import Screen
+
 
 class WelcomeScreen(Screen):
     def __init__(self, **kwargs):

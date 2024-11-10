@@ -1,8 +1,9 @@
-from kivy.uix.screenmanager import Screen
-from kivy.uix.label import Label
 from kivy.uix.button import Button
-from kivy.uix.textinput import TextInput
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.label import Label
+from kivy.uix.screenmanager import Screen
+from kivy.uix.textinput import TextInput
+
 from database import insert_data
 
 
@@ -12,18 +13,24 @@ class RegistrationScreen(Screen):
 
         layout = FloatLayout()
 
-        self.label_name = Label(text='Логин', color=(0, 0, 1, 1), font_size=20, pos_hint={'center_x': 0.5, 'center_y': 0.75})
+        self.label_name = Label(text='Логин', color=(0, 0, 1, 1), font_size=20,
+                                pos_hint={'center_x': 0.5, 'center_y': 0.75})
         self.inp_name = TextInput(multiline=False, size_hint=(0.4, 0.05), pos_hint={'center_x': 0.5, 'center_y': 0.7})
 
-        self.label_pass = Label(text='Пароль', color=(0, 0, 1, 1), font_size=20, pos_hint={'center_x': 0.5, 'center_y': 0.65})
-        self.inp_pass = TextInput(multiline=False, password=True, size_hint=(0.4, 0.05), pos_hint={'center_x': 0.5, 'center_y': 0.6})
+        self.label_pass = Label(text='Пароль', color=(0, 0, 1, 1), font_size=20,
+                                pos_hint={'center_x': 0.5, 'center_y': 0.65})
+        self.inp_pass = TextInput(multiline=False, password=True, size_hint=(0.4, 0.05),
+                                  pos_hint={'center_x': 0.5, 'center_y': 0.6})
 
-        btn_register = Button(text="Зарегистрироваться", background_color=(0, 1, 0, 1), size_hint=(0.4, 0.06), font_size=20, pos_hint={'center_x': 0.5, 'center_y': 0.4})
+        btn_register = Button(text="Зарегистрироваться", background_color=(0, 1, 0, 1), size_hint=(0.4, 0.06),
+                              font_size=20, pos_hint={'center_x': 0.5, 'center_y': 0.4})
         btn_register.bind(on_press=self.register_user)
 
-        self.error_label = Label(text='', color=(1, 0, 0, 1), size_hint=(0.4, 0.05), pos_hint={'center_x': 0.5, 'center_y': 0.35})
+        self.error_label = Label(text='', color=(1, 0, 0, 1), size_hint=(0.4, 0.05),
+                                 pos_hint={'center_x': 0.5, 'center_y': 0.35})
 
-        btn_to_login = Button(text='Перейти на экран входа', size_hint=(0.4, 0.06), pos_hint={'center_x': 0.5, 'center_y': 0.2})
+        btn_to_login = Button(text='Перейти на экран входа', size_hint=(0.4, 0.06),
+                              pos_hint={'center_x': 0.5, 'center_y': 0.2})
         btn_to_login.bind(on_press=self.go_to_login)
 
         layout.add_widget(self.label_name)

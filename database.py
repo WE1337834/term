@@ -1,7 +1,9 @@
 import sqlite3
 
+
 def connect_to_db():
     return sqlite3.connect('term.db', timeout=10)  # добавьте таймаут
+
 
 def create_table():
     with connect_to_db() as conn:
@@ -15,6 +17,7 @@ def create_table():
         ''')
         conn.commit()
 
+
 def insert_data(name, password):
     with connect_to_db() as conn:
         c = conn.cursor()
@@ -22,11 +25,13 @@ def insert_data(name, password):
         c.execute("SELECT COUNT(*) FROM user WHERE name = ?", (name,))
         if c.fetchone()[0] > 0:
             return False
-        
+
         # Вставка данных, если пользователь не найден
         c.execute("INSERT INTO user (name, password) VALUES (?, ?)", (name, password))
         conn.commit()
         return True
+
+
 def check_credentials(name, password):
     with connect_to_db() as conn:
         c = conn.cursor()
